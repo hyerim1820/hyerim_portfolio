@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim hyerim portfolio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="greeting">안녕하세요! 클릭해보세요.</h1>
+
+
+
+    <script>
+        $(document).ready(function() {
+            // #greeting 클릭 시 글씨 변경
+            $('#greeting').click(function() {
+                $(this).text('안녕안녕, jQuery!');
+                $(this).css('color', 'red'); // 글씨 색 변경
+            });
+            });
+    </script>
+
+</body>
+</html>
