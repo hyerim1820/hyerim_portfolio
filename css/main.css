@@ -119,7 +119,12 @@
 
 #DIGITAL{bottom: 28px; left: 0; transform: rotate(20deg);}
 #INFINITE{bottom: 56px; left: 111px; transform: rotate(11deg); background-color: #c8c8c8; border: 1px solid #ffffff;}
-#INTERFACE{bottom: 112px; left: 111px; transform: rotate(11deg); background-color: rgba(200, 200, 200, 0.2); border: 1px solid #ffffff;}
+#INTERFACE{bottom: 128px; left: 63px; transform: rotate(8deg); background-color: rgba(200, 200, 200, 0.4); border: 1px solid #ffffff;}
+#DIGITAL{bottom: 70px; left: 200px;transform: rotate(-20deg); background-color: rgba(60, 60, 60, 0.7);}
+#DESIGNER{bottom: 50px; left: 250px;transform: rotate(11deg); background-color: #d9d9d9; border: 1px solid #ffffff;}
+#DESIGNER{bottom: 120px; left: 270px;transform: rotate(11deg); background-color: transparent; border: 1px solid #ffffff;}
+#UIUX{bottom: 120px; left: 400px;transform: rotate(-11deg); background-color: transparent; border: 1px solid #ffffff;}
+#USER{bottom: 120px; left: 500px;transform: rotate(-11deg); background-color: transparent; border: 1px solid #ffffff;}
 
 
 
