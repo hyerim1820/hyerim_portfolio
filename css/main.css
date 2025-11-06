@@ -120,7 +120,7 @@
     position: absolute;
 }
 
-.key:after{
+.key_wrap:after{
     content: '';
     position: absolute;
     width: 30px;
