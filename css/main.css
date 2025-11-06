@@ -121,11 +121,11 @@
 }
 
 #DIGITAL{bottom: 28px; left: 0; transform: rotate(20deg);}
-#INFINITE{bottom: 56px; left: 111px; transform: rotate(11deg); background-color: #c8c8c8; border: 1px solid #ffffff;}
-#INTERFACE{bottom: 128px; left: 63px; transform: rotate(8deg); background-color: rgba(200, 200, 200, 0.4); border: 1px solid #ffffff;}
-#DIGITAL2{bottom: 70px; left: 200px; transform: rotate(-20deg); background-color: #3c3c3c;}
-#DESIGNER{bottom: 50px; left: 250px; transform: rotate(11deg); background-color: #d9d9d9; border: 1px solid #ffffff;}
-#GROWTH{bottom: 120px; right: 380px; transform: rotate(11deg); background-color: transparent; border: 1px solid #ffffff;}
+#INFINITE{bottom: 41px; left: 193px; transform: rotate(8deg); background-color: #c8c8c8; border: 1px solid #ffffff;}
+#INTERFACE{bottom: 128px; left: 76px; transform: rotate(11deg); background-color: rgba(200, 200, 200, 0.4); border: 1px solid #ffffff;}
+#DIGITAL2{bottom: 70px; left: 50%; margin-left: -136px; transform: rotate(-20deg); background-color: #3c3c3c;}
+#DESIGNER{bottom: 37px; right: 50%; margin-right: -250px; transform: rotate(-16deg); background-color: #d9d9d9; border: 1px solid #ffffff;}
+#GROWTH{bottom: 120px; right: 50%; margin-right: -192px; transform: rotate(11deg); background-color: transparent; border: 1px solid #ffffff;}
 #UIUX{bottom: 103px; right: 105px; transform: rotate(-15deg); background-color: #3f3f3f; border: 1px solid #ffffff;}
 #USER{bottom: 40px; right: 0; transform: rotate(-11deg); background-color: transparent; border: 1px solid #ffffff;}
 
