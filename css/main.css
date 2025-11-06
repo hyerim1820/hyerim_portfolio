@@ -92,10 +92,10 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 220px;
+    height: 145px;
     background: #b6b6b6;
-    border-top-left-radius: 100% 800px;
-    border-top-right-radius: 100% 800px;
+    border-top-left-radius: 200% 800px;
+    border-top-right-radius: 200% 800px;
 }
 
 .key_wrap{
@@ -104,8 +104,6 @@
 }
 
 .key{
-    width: 200px;
-    height: 80px;
     padding: 10px 20px;
     border-radius: 120px;
     background-color: #727272;
@@ -119,8 +117,9 @@
     position: absolute;
 }
 
-#DIGITAL{bottom: -200px; left: 0;}
-#INFINITE{bottom: -150px; left: 0;}
+#DIGITAL{bottom: 28px; left: 0; transform: rotate(20deg);}
+#INFINITE{bottom: 56px; left: 111px; transform: rotate(11deg); background-color: #c8c8c8; border: 1px solid #ffffff;}
+#INTERFACE{bottom: 112px; left: 111px; transform: rotate(11deg); background-color: rgba(200, 200, 200, 0.2); border: 1px solid #ffffff;}
 
 
 
