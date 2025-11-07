@@ -171,16 +171,17 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 120px;
+    align-items: flex-end;
+    padding-bottom: 20px;
 }
 
 .contents{
-    width: 330px;
     font-family: 'en';
+    font-size: 40px;
     letter-spacing: 2px;
 }
 
 .right_con{
-    width: 615px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -191,9 +192,13 @@
     border-radius: 120px;
     background-color: #525252;
     font-family: 'ko';
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.con01{
+    margin-right: 20px;
+    border-bottom: 1px solid #999999;
+}
