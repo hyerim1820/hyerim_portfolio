@@ -174,16 +174,28 @@
     padding-bottom: 20px;
     border-bottom: 1px solid #999999;
     margin-top: 120px;
+    position: relative;
 }
 
 .con_wrap:after{
     content: '';
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    top: 0;
-    right: 0;
+    top: 71px;
+    right: -4px;
+    background-color: #ffffff;
+}
+
+.con_wrap::before{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    top: 71px;
+    left: -4px;
     background-color: #ffffff;
 }
 
