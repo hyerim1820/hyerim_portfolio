@@ -174,7 +174,7 @@
     align-items: flex-end;
     padding-bottom: 20px;
     border-bottom: 1px solid #999999;
-    margin-top: 200px;
+    margin-top: 300px;
     position: relative;
 }
 
@@ -215,12 +215,13 @@
 .con01, .con02{
     padding: 8px 20px;
     border-radius: 120px;
-    background-color: #2f2f2f;
+    background-color: #dddddd;
     font-family: 'ko';
     font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #000000;
 }
 
 .con01{
@@ -283,8 +284,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid #777777;
+    border: 1px solid #3d3d3d;
     border-radius: 4px;
     box-sizing: border-box;
-    box-shadow: 5px 5px 3px #777777;
+    box-shadow: 3px 3px 8px #3d3d3d;
 }
