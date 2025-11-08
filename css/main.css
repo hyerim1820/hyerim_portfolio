@@ -238,7 +238,7 @@
 }
 
 .con_seq:last-child{
-    border-color: #ffffff;
+    border-color: #999999;
 }
 
 .con_num{
@@ -283,8 +283,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ffffff;
+    border: 1px solid #777777;
     border-radius: 4px;
     box-sizing: border-box;
-    box-shadow: 5px 5px 3px #ffffff;
+    box-shadow: 5px 5px 3px #777777;
 }
