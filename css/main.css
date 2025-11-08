@@ -208,16 +208,50 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #3d3d3d;
 }
 
 .con_num{
     width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'en2';
 }
 
 .con_title{
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.con_b_title{
+    font-family: 'ko2';
+    font-size: 24px;
+}
+
+.con_s_title{
+    font-family: 'ko';
+    font-size: 18px;
+    color: #cccccc;
 }
 
 .con_view{
+    font-family: 'en';
+    font-size: 24px;
     width: 10%;
+}
+
+.con_view p{
+    width: 160px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff;
 }
