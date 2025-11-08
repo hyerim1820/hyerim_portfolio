@@ -123,35 +123,7 @@
 
 
     <script>
-
         AOS.init();
-
-
-        
-        const cursor = document.querySelector('.cursor');
-        let x = 0, y = 0; // 현재 좌표
-        let targetX = 0, targetY = 0; // 목표 좌표
-
-        // 마우스 움직임 추적
-        document.addEventListener('mousemove', e => {
-            targetX = e.clientX;
-            targetY = e.clientY;
-        });
-
-        // 부드러운 따라오기
-        function animate() {
-            x += (targetX - x) * 0.15;
-            y += (targetY - y) * 0.15;
-            cursor.style.transform = `translate(${x}px, ${y}px)`;
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // hover 시 커서 커지게
-        document.querySelectorAll('a, button, .hover-target').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
     </script>
 
 </body>
