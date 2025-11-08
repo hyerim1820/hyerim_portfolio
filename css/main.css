@@ -173,7 +173,7 @@
     justify-content: space-between;
     align-items: flex-end;
     padding-bottom: 20px;
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid #777777;
     margin-top: 300px;
     position: relative;
 }
@@ -235,11 +235,11 @@
     justify-content: flex-start;
     align-items: center;
     padding: 30px 0;
-    border-bottom: 1px solid #3d3d3d;
+    border-bottom: 1px solid #1f1f1f;
 }
 
 .con_seq:last-child{
-    border-color: #999999;
+    border-color: #777777;
 }
 
 .con_num{
@@ -268,7 +268,7 @@
 .con_s_title{
     font-family: 'ko';
     font-size: 14px;
-    color: #cccccc;
+    color: #999999;
 }
 
 .con_view{
@@ -284,8 +284,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid #3d3d3d;
+    border: 1px solid #1f1f1f;
     border-radius: 4px;
     box-sizing: border-box;
-    box-shadow: 3px 3px 8px #3d3d3d;
+    box-shadow: 3px 3px 8px #363636;
 }
