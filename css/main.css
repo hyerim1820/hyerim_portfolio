@@ -154,7 +154,6 @@
     top: -123px;
     left: 259px;
     filter: blur(2px);
-    animation: Dot 3.5s ease-in-out infinite;
 }
 
 .key_wrap::before{
@@ -167,20 +166,6 @@
     top: -95px;
     right: 230px;
     filter: blur(5px);
-    animation: Dot 3.5s ease-in-out infinite;
-}
-
-/* 점(dot)들도 미세하게 움직이게 */
-@keyframes Dot {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(2px, -4px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
 }
 
 #DIGITAL{bottom: 28px; left: 0; transform: rotate(20deg); animation-delay: 0s;}
@@ -323,4 +308,10 @@
     border-radius: 4px;
     box-sizing: border-box;
     box-shadow: 3px 3px 8px #363636;
+}
+
+.con_view p:hover{
+    transform: scale(1.05);
+    transition-duration: 2s;
+    cursor: pointer;
 }
