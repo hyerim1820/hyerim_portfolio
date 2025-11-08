@@ -207,5 +207,17 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    
+    justify-content: flex-start;
+}
+
+.con_num{
+    width: 10%;
+}
+
+.con_title{
+    width: 80%;
+}
+
+.con_view{
+    width: 10%;
 }
