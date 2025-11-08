@@ -288,12 +288,3 @@
     box-sizing: border-box;
     box-shadow: 5px 5px 3px #777777;
 }
-
-.middle_txt{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-family: 'ko';
-    font-size: 24px;
-}
