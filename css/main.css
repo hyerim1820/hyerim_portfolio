@@ -128,13 +128,19 @@
 /* 둥둥 떠오르는 기본 애니메이션 */
 @keyframes fly {
   0% {
-    transform: translateX(0);
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  25% {
+    transform: translateY(-5px) rotate(calc(var(--r, 0deg) + 2deg));
   }
   50% {
-    transform: translateX(-6px);
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  75% {
+    transform: translateY(5px) rotate(calc(var(--r, 0deg) - 2deg));
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0) rotate(var(--r, 0deg));
   }
 }
 
