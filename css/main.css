@@ -53,16 +53,17 @@
     width: 610px;
     height: 1px;
     background-color: #ffffff;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .sub_txt{
-    font-size: 24px;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     margin-left: 90px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     line-height: 36px;
+    margin-top: 20px;
 }
 
 .bottom_txt{
