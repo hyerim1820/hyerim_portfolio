@@ -258,7 +258,7 @@
 }
 
 .con_b_title{
-    font-family: 'ko2';
+    font-family: 'ko';
     font-size: 16px;
     margin-bottom: 8px;
 }
@@ -284,4 +284,6 @@
     align-items: center;
     border: 1px solid #ffffff;
     border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 3px #ffffff;
 }
