@@ -83,8 +83,16 @@
 }
 
 .int_txt{
-    width: 100px;
     height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+    font-family: 'ko';
+}
+
+.imt_txt p{
+    font-size: 18px;
 }
 
 .bottom_de{
