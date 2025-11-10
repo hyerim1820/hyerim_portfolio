@@ -89,10 +89,15 @@
     align-items: center;
     font-size: 22px;
     font-family: 'ko';
+    line-height: 35px;
 }
 
-.imt_txt p{
+.int_txt p{
     font-size: 18px;
+}
+
+.p_wrap{
+    margin-top: 20px;
 }
 
 .bottom_de{
