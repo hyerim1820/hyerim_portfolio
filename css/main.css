@@ -316,7 +316,14 @@
 .con_view{
     font-family: 'en';
     font-size: 14px;
-    width: 10%;
+}
+
+.con_view2{
+    font-family: 'en';
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .con_view p{
