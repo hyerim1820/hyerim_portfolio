@@ -320,12 +320,13 @@
 }
 
 .con_view2{
-    width: 20%;
+    width: 220px;
     font-family: 'en';
     font-size: 14px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 25px;
 }
 
 .con_view p, .con_view2 p{
