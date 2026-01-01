@@ -284,6 +284,13 @@
     border-color: #777777;
 }
 
+.con_left{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
 .con_num{
     width: 10%;
     display: flex;
