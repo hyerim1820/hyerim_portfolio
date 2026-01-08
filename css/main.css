@@ -568,14 +568,14 @@
     filter: blur(5px);
 }
 
-#DIGITAL{bottom: 28px; left: 0; transform: rotate(20deg); animation-delay: 0s;}
-#INFINITE{bottom: 41px; left: 193px; transform: rotate(8deg); background-color: #c8c8c8; border: 1px solid #ffffff; animation-delay: 0.3s;}
+#DIGITAL{bottom: 15px; left: -41px; transform: rotate(20deg); animation-delay: 0s;}
+#INFINITE{bottom: 76px; left: 169px; transform: rotate(8deg); background-color: #c8c8c8; border: 1px solid #ffffff; animation-delay: 0.3s;}
 #INTERFACE{bottom: 128px; left: 76px; transform: rotate(11deg); background-color: rgba(200, 200, 200, 0.4); border: 1px solid #ffffff; animation-delay: 0.6s;}
 #DIGITAL2{bottom: 61px; left: 50%; margin-left: -200px; transform: rotate(-20deg); background-color: #3c3c3c; animation-delay: 0.9s;}
-#DESIGNER{bottom: 37px; right: 50%; margin-right: -232px; transform: rotate(-7deg); background-color: #d9d9d9; border: 1px solid #ffffff; animation-delay: 1.2s;}
-#GROWTH{bottom: 120px; right: 50%; margin-right: -103px; transform: rotate(11deg); background-color: transparent; border: 1px solid #ffffff; animation-delay: 1.5s;}
-#UIUX{bottom: 103px; right: 105px; transform: rotate(-15deg); background-color: #3f3f3f; border: 1px solid #ffffff; animation-delay: 1.8s;}
-#USER{bottom: 40px; right: 0; transform: rotate(-11deg); background-color: transparent; border: 1px solid #ffffff; animation-delay: 2.1s;}
+#DESIGNER{bottom: 17px; right: 81%; margin-right: -232px; transform: rotate(-7deg); background-color: #d9d9d9; border: 1px solid #ffffff; animation-delay: 1.2s;}
+#GROWTH{bottom: 85px; right: 98%; margin-right: -103px; transform: rotate(11deg); background-color: transparent; border: 1px solid #ffffff; animation-delay: 1.5s;}
+#UIUX{bottom: 123px; right: 144px; transform: rotate(-15deg); background-color: #3f3f3f; border: 1px solid #ffffff; animation-delay: 1.8s;}
+#USER{bottom: 44px; right: 27px; transform: rotate(-11deg); background-color: transparent; border: 1px solid #ffffff; animation-delay: 2.1s;}
 
 #sec03{
     width: calc(100% - 60px);
