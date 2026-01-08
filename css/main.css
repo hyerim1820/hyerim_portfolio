@@ -717,7 +717,7 @@
 .con_view{
     font-family: 'en';
     font-size: 14px;
-    margin-right: 25px;
+    margin-top: 16px;
 }
 
 .con_view2{
@@ -726,6 +726,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 0 !important;
+    margin-top: 16px;
 }
 
 .con_view p, .con_view2 p{
