@@ -733,6 +733,7 @@
     font-family: 'ko';
     font-size: 16px;
     margin-bottom: 8px;
+
 }
 
 .con_s_title{
@@ -746,6 +747,7 @@
     font-family: 'en';
     font-size: 14px;
     margin-top: 16px;
+    margin-right: 0;
 }
 
 .con_view2{
