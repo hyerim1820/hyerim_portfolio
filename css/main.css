@@ -93,6 +93,10 @@
     line-height: 35px;
 }
 
+.mo_int_txt{
+    display: none;
+}
+
 .p_sub{
     font-size: 16px;
 }
@@ -477,6 +481,10 @@
 }
 
 .int_txt{
+    display: none;
+}
+
+.mo_int_txt{
     height: 450px;
     display: flex;
     flex-direction: column;
