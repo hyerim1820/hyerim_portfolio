@@ -1,5 +1,6 @@
 #wrap{
     width: 100%;
+    min-width: 1060px;
     background-color: #000000;
     color: #ffffff;
     display: flex;
