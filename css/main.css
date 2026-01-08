@@ -489,6 +489,16 @@
     line-height: 26px;
 }
 
+.p_wrap2{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30px;
+    text-align: left;
+    line-height: 26px;
+}
+
 .bottom_de{
     width: 100%;
     display: flex;
