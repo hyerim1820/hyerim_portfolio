@@ -579,11 +579,13 @@
 
 #sec03{
     width: calc(100% - 60px);
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-bottom: 200px;
 }
 
 .con_wrap{
@@ -748,7 +750,7 @@
 
 #sec04{
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
