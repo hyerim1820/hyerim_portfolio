@@ -509,6 +509,7 @@
     padding: 0 30px;
     text-align: center;
     line-height: 26px;
+    display: none;
 }
 
 .p_wrap2{
