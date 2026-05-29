@@ -32,150 +32,245 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>책장 넘김 효과</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<title>Fullscreen Book Flip</title>
 
-    body{
-      background:#ececec;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      font-family:sans-serif;
-      perspective:2000px;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .book{
-      position:relative;
-      width:700px;
-      height:450px;
-    }
+body{
+  overflow:hidden;
+  font-family:sans-serif;
+  background:#111;
+}
 
-    .page{
-      position:absolute;
-      width:50%;
-      height:100%;
-      top:0;
-      right:0;
-      transform-origin:left center;
-      transform-style:preserve-3d;
-      transition:transform 1s ease;
-      cursor:pointer;
-    }
+/* 전체 책 */
+.book{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  perspective:3000px;
+  overflow:hidden;
+}
 
-    .page.flipped{
-      transform:rotateY(-180deg);
-    }
+/* 페이지 공통 */
+.page{
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+}
 
-    .front,
-    .back{
-      position:absolute;
-      width:100%;
-      height:100%;
-      backface-visibility:hidden;
-      overflow:hidden;
-      border:1px solid #ccc;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
+/* 실제 넘어가는 종이 */
+.paper{
+  position:absolute;
+  width:50%;
+  height:100%;
+  right:0;
+  top:0;
 
-    .front{
-      background:white;
-    }
+  transform-origin:left center;
+  transform-style:preserve-3d;
 
-    .back{
-      background:#f8f8f8;
-      transform:rotateY(180deg);
-    }
+  transition:
+    transform 1.4s cubic-bezier(.65,.02,.2,1),
+    filter 1.4s ease,
+    opacity 1.2s ease;
 
-    .content{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100%;
-      font-size:40px;
-      font-weight:bold;
-    }
+  z-index:5;
+}
 
-    .left-page{
-      position:absolute;
-      width:50%;
-      height:100%;
-      left:0;
-      top:0;
-      background:white;
-      border:1px solid #ccc;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
+/* 종이 앞뒤 */
+.front,
+.back{
+  position:absolute;
+  inset:0;
 
-    button{
-      position:absolute;
-      bottom:-70px;
-      padding:12px 24px;
-      border:none;
-      background:black;
-      color:white;
-      cursor:pointer;
-      border-radius:8px;
-      font-size:16px;
-    }
+  width:100%;
+  height:100%;
 
-    #nextBtn{
-      right:0;
-    }
+  backface-visibility:hidden;
+  overflow:hidden;
+}
 
-    #prevBtn{
-      left:0;
-    }
-  </style>
+/* 앞면 */
+.front{
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.18),
+      rgba(0,0,0,0.03) 12%,
+      rgba(255,255,255,0.02) 40%,
+      rgba(0,0,0,0.15)
+    ),
+    url('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000&auto=format&fit=crop')
+    center/cover;
+
+  border-left:1px solid rgba(255,255,255,0.1);
+}
+
+/* 뒷면 */
+.back{
+  transform:rotateY(180deg);
+
+  background:
+    linear-gradient(
+      to left,
+      rgba(0,0,0,0.25),
+      rgba(255,255,255,0.02) 25%,
+      rgba(0,0,0,0.1)
+    ),
+    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop')
+    center/cover;
+}
+
+/* 왼쪽 이미 열린 페이지 */
+.left-side{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.08) 10%,
+      transparent 35%
+    ),
+    url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=2000&auto=format&fit=crop')
+    center/cover;
+}
+
+/* 종이 그림자 */
+.paper::after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:-30px;
+  width:60px;
+  height:100%;
+
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,0.35),
+    transparent
+  );
+
+  opacity:.5;
+  transition:opacity 1.4s ease;
+}
+
+/* 넘겨지는 상태 */
+.paper.flip{
+  transform:rotateY(-180deg);
+  filter:brightness(.85);
+  opacity:.96;
+}
+
+.paper.flip::after{
+  opacity:.1;
+}
+
+/* 중앙 책 접히는 부분 */
+.book::before{
+  content:'';
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  width:80px;
+  height:100%;
+
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,0.55),
+    rgba(255,255,255,0.04),
+    rgba(0,0,0,0.55)
+  );
+
+  z-index:10;
+  pointer-events:none;
+}
+
+/* 버튼 */
+.controls{
+  position:fixed;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:16px;
+  z-index:999;
+}
+
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:999px;
+
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+button:hover{
+  background:rgba(255,255,255,0.22);
+  transform:translateY(-2px);
+}
+</style>
 </head>
+
 <body>
 
-  <div class="book">
+<div class="book">
 
-    <div class="left-page">
-      <div class="content">PAGE 1</div>
+  <div class="left-side"></div>
+
+  <div class="page">
+    <div class="paper" id="paper">
+
+      <div class="front"></div>
+
+      <div class="back"></div>
+
     </div>
-
-    <div class="page" id="page">
-      <div class="front">
-        <div class="content">PAGE 2</div>
-      </div>
-
-      <div class="back">
-        <div class="content">PAGE 3</div>
-      </div>
-    </div>
-
-    <button id="prevBtn">이전</button>
-    <button id="nextBtn">다음</button>
-
   </div>
 
-  <script>
-    const page = document.getElementById("page");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
+</div>
 
-    let flipped = false;
+<div class="controls">
+  <button id="prev">이전</button>
+  <button id="next">다음</button>
+</div>
 
-    nextBtn.addEventListener("click", () => {
-      page.classList.add("flipped");
-      flipped = true;
-    });
+<script>
+const paper = document.getElementById('paper');
 
-    prevBtn.addEventListener("click", () => {
-      page.classList.remove("flipped");
-      flipped = false;
-    });
-  </script>
+document.getElementById('next').addEventListener('click', () => {
+  paper.classList.add('flip');
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+  paper.classList.remove('flip');
+});
+
+/* 화면 클릭으로도 넘기기 */
+document.addEventListener('click', (e) => {
+
+  if(e.target.tagName === 'BUTTON') return;
+
+  paper.classList.toggle('flip');
+});
+</script>
 
 </body>
 </html>
