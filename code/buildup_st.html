@@ -35,7 +35,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Multi Page Book Flip</title>
+<title>Real Book Flip</title>
 
 <style>
 *{
@@ -46,29 +46,29 @@
 
 body{
   overflow:hidden;
+  background:#f3f3f3;
   font-family:sans-serif;
-  background:#f5f5f5;
 }
 
-/* 책 전체 */
+/* 책 */
 .book{
   position:relative;
   width:100vw;
   height:100vh;
-  perspective:4000px;
+  perspective:5000px;
   overflow:hidden;
   background:white;
 }
 
-/* 중앙 책 접힘 (간격 좁힘) */
+/* 중앙 접힘 */
 .book::before{
   content:'';
   position:absolute;
   left:50%;
   top:0;
   transform:translateX(-50%);
-  width:18px;
 
+  width:14px;
   height:100%;
 
   background:linear-gradient(
@@ -78,48 +78,34 @@ body{
     rgba(0,0,0,0.08)
   );
 
-  z-index:100;
+  z-index:999;
   pointer-events:none;
-}
-
-/* 왼쪽 페이지 */
-.left-page{
-  position:absolute;
-  left:0;
-  top:0;
-
-  width:50%;
-  height:100%;
-
-  background:white;
-  overflow:hidden;
 }
 
 /* 페이지 */
 .page{
   position:absolute;
+
   width:50%;
   height:100%;
 
   right:0;
   top:0;
 
+  background:white;
+
   transform-origin:left center;
   transform-style:preserve-3d;
 
-  transition:transform 1.4s cubic-bezier(.7,0,.2,1);
+  transition:transform 1.2s cubic-bezier(.65,0,.2,1);
 
-  cursor:pointer;
+  box-shadow:
+    -2px 0 10px rgba(0,0,0,0.04);
 }
 
-/* 페이지 넘김 */
-.page.flipped{
-  transform:rotateY(-180deg);
-}
-
-/* 페이지 앞뒤 */
-.front,
-.back{
+/* 페이지 앞면 */
+.page-front,
+.page-back{
   position:absolute;
   inset:0;
 
@@ -129,17 +115,16 @@ body{
   background:white;
 
   backface-visibility:hidden;
-  overflow:hidden;
-}
-
-/* 앞면 */
-.front{
-  border-left:1px solid rgba(0,0,0,0.05);
 }
 
 /* 뒷면 */
-.back{
+.page-back{
   transform:rotateY(180deg);
+}
+
+/* 페이지 넘김 */
+.page.flipped{
+  transform:rotateY(-180deg);
 }
 
 /* 종이 그림자 */
@@ -148,33 +133,48 @@ body{
 
   position:absolute;
   top:0;
-  right:-15px;
+  right:-18px;
 
-  width:30px;
+  width:36px;
   height:100%;
 
   background:linear-gradient(
     to right,
-    rgba(0,0,0,0.12),
+    rgba(0,0,0,0.15),
     transparent
   );
 
-  opacity:.45;
-  transition:opacity 1.4s ease;
+  opacity:.4;
+
+  transition:opacity 1.2s ease;
 }
 
 .page.flipped::after{
-  opacity:.08;
+  opacity:.05;
+}
+
+/* 왼쪽 페이지 영역 */
+.left{
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:50%;
+  height:100%;
+
+  background:white;
 }
 
 /* 내용 */
 .content{
   width:100%;
   height:100%;
+
   padding:70px;
 
   color:#222;
-  line-height:1.7;
+  line-height:1.8;
 }
 
 /* 버튼 */
@@ -185,13 +185,13 @@ body{
   transform:translateX(-50%);
 
   display:flex;
-  gap:12px;
+  gap:14px;
 
   z-index:9999;
 }
 
 button{
-  padding:12px 26px;
+  padding:12px 24px;
 
   border:none;
   border-radius:999px;
@@ -201,13 +201,6 @@ button{
 
   cursor:pointer;
   font-size:15px;
-
-  transition:.25s;
-}
-
-button:hover{
-  opacity:.9;
-  transform:translateY(-2px);
 }
 </style>
 </head>
@@ -216,13 +209,8 @@ button:hover{
 
 <div class="book" id="book">
 
-  <!-- 왼쪽 고정 페이지 -->
-  <div class="left-page">
-    <div class="content" id="leftContent">
-      <h1>PAGE 1</h1>
-      <p>첫 페이지 내용</p>
-    </div>
-  </div>
+  <!-- 왼쪽 기본 -->
+  <div class="left"></div>
 
 </div>
 
@@ -232,92 +220,98 @@ button:hover{
 </div>
 
 <script>
-const pages = [
-  {
-    front: `
-      <h1>PAGE 2</h1>
-      <p>두번째 페이지입니다.</p>
-    `,
-    back: `
-      <h1>PAGE 3</h1>
-      <p>세번째 페이지입니다.</p>
-    `
-  },
+const pageData = [
 
-  {
-    front: `
-      <h1>PAGE 4</h1>
-      <p>네번째 페이지입니다.</p>
-    `,
-    back: `
-      <h1>PAGE 5</h1>
-      <p>다섯번째 페이지입니다.</p>
-    `
-  },
+  `
+    <h1>PAGE 1</h1>
+    <p>첫 페이지 내용입니다.</p>
+  `,
 
-  {
-    front: `
-      <h1>PAGE 6</h1>
-      <p>여섯번째 페이지입니다.</p>
-    `,
-    back: `
-      <h1>PAGE 7</h1>
-      <p>일곱번째 페이지입니다.</p>
-    `
-  }
+  `
+    <h1>PAGE 2</h1>
+    <p>두번째 페이지 내용입니다.</p>
+  `,
+
+  `
+    <h1>PAGE 3</h1>
+    <p>세번째 페이지 내용입니다.</p>
+  `,
+
+  `
+    <h1>PAGE 4</h1>
+    <p>네번째 페이지 내용입니다.</p>
+  `,
+
+  `
+    <h1>PAGE 5</h1>
+    <p>다섯번째 페이지 내용입니다.</p>
+  `,
+
+  `
+    <h1>PAGE 6</h1>
+    <p>여섯번째 페이지 내용입니다.</p>
+  `
+
 ];
 
 const book = document.getElementById('book');
 
-let currentPage = 0;
-let pageElements = [];
+const pages = [];
 
-/* 페이지 생성 */
-pages.forEach((pageData, index) => {
+for(let i = 0; i < pageData.length; i++){
 
   const page = document.createElement('div');
+
   page.classList.add('page');
 
-  page.style.zIndex = pages.length - index;
+  page.style.zIndex = pageData.length - i;
 
   page.innerHTML = `
-    <div class="front">
+
+    <div class="page-front">
       <div class="content">
-        ${pageData.front}
+        ${pageData[i]}
       </div>
     </div>
 
-    <div class="back">
+    <div class="page-back">
       <div class="content">
-        ${pageData.back}
+        ${
+          pageData[i + 1]
+          ? pageData[i + 1]
+          : ''
+        }
       </div>
     </div>
+
   `;
 
   book.appendChild(page);
 
-  pageElements.push(page);
-});
+  pages.push(page);
+}
+
+let current = 0;
 
 /* 다음 */
 document.getElementById('nextBtn').addEventListener('click', () => {
 
-  if(currentPage < pageElements.length){
+  if(current < pages.length){
 
-    pageElements[currentPage].classList.add('flipped');
+    pages[current].classList.add('flipped');
 
-    currentPage++;
+    current++;
   }
 });
 
 /* 이전 */
 document.getElementById('prevBtn').addEventListener('click', () => {
 
-  if(currentPage > 0){
+  if(current > 0){
 
-    currentPage--;
+    current--;
 
-    pageElements[currentPage].classList.remove('flipped');
+    pages[current].classList.remove('flipped');
   }
 });
 </script>
