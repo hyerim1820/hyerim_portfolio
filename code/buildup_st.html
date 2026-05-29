@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,5 +26,156 @@
     <div id="wrap">
         <img src="../../hyerim_portfolio/img/buildup_math_uxui.png" alt="빌드업수학 uiux 이미지">
     </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>책장 넘김 효과</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#ececec;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:sans-serif;
+      perspective:2000px;
+    }
+
+    .book{
+      position:relative;
+      width:700px;
+      height:450px;
+    }
+
+    .page{
+      position:absolute;
+      width:50%;
+      height:100%;
+      top:0;
+      right:0;
+      transform-origin:left center;
+      transform-style:preserve-3d;
+      transition:transform 1s ease;
+      cursor:pointer;
+    }
+
+    .page.flipped{
+      transform:rotateY(-180deg);
+    }
+
+    .front,
+    .back{
+      position:absolute;
+      width:100%;
+      height:100%;
+      backface-visibility:hidden;
+      overflow:hidden;
+      border:1px solid #ccc;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .front{
+      background:white;
+    }
+
+    .back{
+      background:#f8f8f8;
+      transform:rotateY(180deg);
+    }
+
+    .content{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100%;
+      font-size:40px;
+      font-weight:bold;
+    }
+
+    .left-page{
+      position:absolute;
+      width:50%;
+      height:100%;
+      left:0;
+      top:0;
+      background:white;
+      border:1px solid #ccc;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    button{
+      position:absolute;
+      bottom:-70px;
+      padding:12px 24px;
+      border:none;
+      background:black;
+      color:white;
+      cursor:pointer;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    #nextBtn{
+      right:0;
+    }
+
+    #prevBtn{
+      left:0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book">
+
+    <div class="left-page">
+      <div class="content">PAGE 1</div>
+    </div>
+
+    <div class="page" id="page">
+      <div class="front">
+        <div class="content">PAGE 2</div>
+      </div>
+
+      <div class="back">
+        <div class="content">PAGE 3</div>
+      </div>
+    </div>
+
+    <button id="prevBtn">이전</button>
+    <button id="nextBtn">다음</button>
+
+  </div>
+
+  <script>
+    const page = document.getElementById("page");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    let flipped = false;
+
+    nextBtn.addEventListener("click", () => {
+      page.classList.add("flipped");
+      flipped = true;
+    });
+
+    prevBtn.addEventListener("click", () => {
+      page.classList.remove("flipped");
+      flipped = false;
+    });
+  </script>
+
 </body>
 </html>
